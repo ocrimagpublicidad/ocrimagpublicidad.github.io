@@ -1036,7 +1036,10 @@
             </div>     
             <div class="col-lg-6 col-sm-6 col-xs-12 wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="0.5s">
               <div class="contact-block">
-                <form id="contactForm" method="POST" action="envio.php">
+                <?php
+                  if(!$_POST){
+                ?>
+                <form id="contactForm" method="POST" action="index.php">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
@@ -1063,6 +1066,31 @@
                     </div>
                   </div>            
                 </form>
+                <?php
+                  } else {
+                    $name = $_POST["name"];
+                    $email = $_POST["email"];
+                    $message = $_POST["message"];
+                    $EmailTo = "victorjativa@hotmail.com";
+                    $Subject = "Mensaje de la WEB";
+                    $Body = "";
+                    $Body .= "Nombre: ";
+                    $Body .= $name;
+                    $Body .= "\n";
+                    $Body .= "Correo: ";
+                    $Body .= $email;
+                    $Body .= "\n";
+                    $Body .= "Mensaje: ";
+                    $Body .= $message;
+                    $Body .= "\n";
+                    $success = mail($EmailTo, $Subject, $Body, "From:".$email);
+                    if ($success && $errorMSG == ""){
+                      echo "Enviado";
+                    } else {
+                      echo "Ocurrio un problema";
+                    }
+                  }
+                ?>
               </div>
             </div>
           </div>
@@ -1070,6 +1098,63 @@
       </div>           
     </section>
     <!-- Contact Section End -->
+
+    <?php
+    $errorMSG = "";
+
+    // NAME
+    if (empty($_POST["name"])) {
+        $errorMSG = "Name is required ";
+    } else {
+        $name = $_POST["name"];
+    }
+
+    // EMAIL
+    if (empty($_POST["email"])) {
+        $errorMSG .= "Email is required ";
+    } else {
+        $email = $_POST["email"];
+    }
+
+    // MESSAGE
+    if (empty($_POST["message"])) {
+        $errorMSG .= "Message is required ";
+    } else {
+        $message = $_POST["message"];
+    }
+
+
+    $EmailTo = "victorjativa@hotmail.com";
+    $Subject = "Mensaje de la WEB";
+
+    // prepare email body text
+    $Body = "";
+    $Body .= "Nombre: ";
+    $Body .= $name;
+    $Body .= "\n";
+    $Body .= "Correo: ";
+    $Body .= $email;
+    $Body .= "\n";
+    $Body .= "Mensaje: ";
+    $Body .= $message;
+    $Body .= "\n";
+
+    // send email
+    $success = mail($EmailTo, $Subject, $Body, "From:".$email);
+
+    // redirect to success page
+    if ($success && $errorMSG == ""){
+      echo "Enviado";
+    }else{
+        if($errorMSG == ""){
+            echo "Ocurrio un problema";
+        } else {
+            echo $errorMSG;
+        }
+    }
+
+    ?>
+
 
     <!-- Footer Section Start -->
     <footer>          
