@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/responsive.css">
 
     <!-- Modal -->
-   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>
       $(document).ready(function()
       {
@@ -32,11 +32,11 @@
 
     <script>
       function validarPassword(){
-        texto = prompt("Para ver la página introduzca su contraseña");
-        if(texto==="asd1"){
-          alert("Password correcta");
+        texto = prompt("Introduce la contraseña:");
+        if(texto==="1605"){
+          alert("¡Listo! espero que te guste mi regalo :)");
         }else{
-          alert("Password incorrecta");
+          alert("Mete bien el dedo jaja");
           validarPassword();
         }
       }
@@ -44,8 +44,8 @@
 
   </head>
   <body>
-
-    <SCRIPT>validarPassword();</SCRIPT>
+    <!-- contraseña -->
+    <script>validarPassword();</script>
 
     <!-- Modal -->
     <div class="modal fade pt-4" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -55,13 +55,21 @@
             <div class="col-12 px-0">
               <h5>¡FELIZ CUMPLEAÑOS MAMITA!</h5>
               <video src="img/video.mp4" class="img-fluid py-3" controls autoplay></video>
-              <p>¿Ya quieres ver tu regalo?</p>
+              <p>¿Ya quieres ver tu página web?</p>
               <a href="#" data-dismiss="modal" class="btn btn-danger" style="border: none; border-radius: 320px; background-color: #d4d800;">Dale clic aquí</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Precargado -->
+    <div id="loader">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>   
 
     <!-- Header Section Start -->
     <header id="inicio" data-stellar-background-ratio="0.5">    
@@ -244,7 +252,6 @@
           <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.5s">Nuestros Planes</h2>
           <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.5s">¡Todas las marcas deben tener presencia en las redes sociales!<br>Mira lo que tenemos preparado para tí.</p>
         </div>
-
         <div class="row pricing-tables align-items-end">
           <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-delay="0.2s">
             <div class="pricing-table">
@@ -263,7 +270,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInDown" data-wow-delay="0.5s">
             <div class="pricing-table">
               <div class="pricing-details">
@@ -281,7 +287,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInRight" data-wow-delay="0.7s">
             <div class="pricing-table">
               <div class="pricing-details">
@@ -299,7 +304,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -1036,61 +1040,32 @@
             </div>     
             <div class="col-lg-6 col-sm-6 col-xs-12 wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="0.5s">
               <div class="contact-block">
-                <?php
-                  if(!$_POST){
-                ?>
                 <form id="contactForm" method="POST" action="index.php">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required data-error="Por favor, escribe tu nombre">
+                        <input type="text" class="form-control" id="nombre" name="name" placeholder="Nombre" required data-error="Por favor, escribe tu nombre">
                         <div class="help-block with-errors"></div>
                       </div>                                 
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <input type="text" placeholder="Correo" id="email" class="form-control" name="name" required data-error="Por favor, escribe tu correo">
+                        <input type="text" placeholder="Correo" id="correo" class="form-control" name="name" required data-error="Por favor, escribe tu correo">
                         <div class="help-block with-errors"></div>
                       </div> 
                     </div>
                     <div class="col-md-12">
                       <div class="form-group"> 
-                        <textarea class="form-control" id="message" placeholder="Mensaje" rows="8" data-error="Por favor, escribe tu requerimiento" required></textarea>
+                        <textarea class="form-control" id="mensaje" placeholder="Mensaje" rows="8" data-error="Por favor, escribe tu requerimiento" required></textarea>
                         <div class="help-block with-errors"></div>
                       </div>
                       <div class="submit-button text-center">
-                        <button class="btn btn-common" id="submit" type="submit">Enviar</button>
-                        <div id="msgSubmit" class="h3 text-center hidden"></div> 
-                        <div class="clearfix"></div> 
+                        <button class="btn btn-common" id="envio" type="submit">Enviar</button>
+                        <span class="d-block pt-3" id="respuesta"></span>
                       </div>
                     </div>
                   </div>            
                 </form>
-                <?php
-                  } else {
-                    $name = $_POST["name"];
-                    $email = $_POST["email"];
-                    $message = $_POST["message"];
-                    $EmailTo = "victorjativa@hotmail.com";
-                    $Subject = "Mensaje de la WEB";
-                    $Body = "";
-                    $Body .= "Nombre: ";
-                    $Body .= $name;
-                    $Body .= "\n";
-                    $Body .= "Correo: ";
-                    $Body .= $email;
-                    $Body .= "\n";
-                    $Body .= "Mensaje: ";
-                    $Body .= $message;
-                    $Body .= "\n";
-                    $success = mail($EmailTo, $Subject, $Body, "From:".$email);
-                    if ($success && $errorMSG == ""){
-                      echo "Enviado";
-                    } else {
-                      echo "Ocurrio un problema";
-                    }
-                  }
-                ?>
               </div>
             </div>
           </div>
@@ -1114,14 +1089,32 @@
     <!-- Go To Top Link -->
     <a href="#inicio" class="back-to-top">
       <i class="lnr lnr-arrow-up"></i>
-    </a>
+    </a> 
     
-    <div id="loader">
-      <div class="spinner">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
-      </div>
-    </div>     
+    <!-- Función formulario a Whatsapp -->
+    <script>
+      document.querySelector("#envio").addEventListener("click",function(){
+        var celular = "593995251125";
+        var nombre = document.querySelector("#nombre").value;
+        var correo = document.querySelector("#correo").value;
+        var mensaje = document.querySelector("#mensaje").value;
+        var respuesta = document.querySelector("#respuesta");
+        var whats = "https://api.whatsapp.com/send?phone=" + celular + "&text=*_Ocrimag Publicidad_*" +
+        "%0A*Nombre:*%0A" + nombre + 
+        "%0A*Correo:*%0A" + correo + 
+        "%0A*Mensaje:*%0A" + mensaje;
+        if (nombre === "" || correo === "" || mensaje === "") {
+          respuesta.classList.add("mal");
+          respuesta.innerHTML = "Por favor, complete los campos señalados.";
+          return false;
+        }
+        respuesta.classList.remove("mal");
+        respuesta.classList.add("bien");
+        respuesta.innerHTML = "¡Tu requerimiento se envió exitósamente!";
+        window.open(whats);
+      });    
+    </script>
+
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="js/jquery-min.js"></script>
