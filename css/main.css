@@ -1,5 +1,23 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,700");
 
+@font-face {
+  font-family: TW-regular;
+  src: url(../fonts/ocrimag-regular.TTF);
+}
+
+@font-face {
+  font-family: TW-bold;
+  src: url(../fonts/ocrimag-bold.TTF);
+}
+
+.gruesa {
+  font-family: 'TW-bold';
+}
+
+.normal {
+  font-family: 'TW-regular';
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   color: #333;
@@ -628,7 +646,7 @@ hr {
   color: #d4d800;
   left: 50%;
   margin-left: -24px;
-  margin-top: -7px;
+  margin-top: 0px;
   top: 50%;
   position: absolute;
   z-index: 2;
