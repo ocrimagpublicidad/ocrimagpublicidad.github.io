@@ -1,4 +1,4 @@
-var url = "productos.xlsx";
+var url = "datos-servicios.xlsx";
 var oReq = new XMLHttpRequest();
 oReq.open("GET", url, true);
 oReq.responseType = "arraybuffer";
@@ -24,7 +24,7 @@ oReq.onload = function(e) {
                             <a class="producto">
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="${carrito.catalogo[i].recomendar=='si'?'recomendadosi':'recomendado'}"><img src="../img/estrella.svg" class="estrella">Recomendado</div>
+                                        <div class="${carrito.catalogo[i].recomendar=='si'?'recomendadosi':'recomendado'}"><img src="img/estrella.svg" class="estrella">Recomendado</div>
                                         <div style="background-image: url(img/${carrito.catalogo[i].imagen}/portada.jpg);" class="foto"></div>
                                     </div>
                                     <div class="col-12 info">
@@ -39,7 +39,7 @@ oReq.onload = function(e) {
                     </div>    
                 `;
             }
-            $("#menu").innerHTML = template;
+            $("#catalogo").innerHTML = template;
         }
     }
 
@@ -88,7 +88,7 @@ oReq.onload = function(e) {
                                 <!-- Cerrar -->
                                 <div class="bt-cerrar">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <img src="../img/cerrar2.svg" width="25px" class="mt-md-5 mt-3 mr-md-5 mr-3">
+                                        <img src="img/cerrar2.svg" width="25px" class="mt-md-5 mt-3 mr-md-5 mr-3">
                                     </button>
                                 </div>
                                 <!-- Contenido -->
@@ -106,7 +106,7 @@ oReq.onload = function(e) {
                                             <div class="row justify-content-center">
                                                 <div class="col-md-5 col-10"> 
                                                     <a href="https://api.whatsapp.com/send?phone=593${contenido.detalle[i].contacto}&text=¡Hola ${contenido.detalle[i].nombre}! Encontré tu emprendimiento en exhibidos. ¿Me puedes ayudar con más información?" target="blank" class="btn bt-agregar" onclick="gtag('event', 'Click', { 'event_category': 'Contactar', 'event_label': '${contenido.detalle[i].nombre}'});">
-                                                        <img src="../img/whatsapp.svg" class="mr-2">
+                                                        <img src="img/whatsapp.svg" class="mr-2">
                                                         Contáctanos
                                                     </a>
                                                 </div>
