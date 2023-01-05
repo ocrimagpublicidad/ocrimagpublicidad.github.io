@@ -1,4 +1,4 @@
-var url = "productos.xlsx";
+var url = "../js/productos.xlsx";
 var oReq = new XMLHttpRequest();
 oReq.open("GET", url, true);
 oReq.responseType = "arraybuffer";
