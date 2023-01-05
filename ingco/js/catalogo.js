@@ -1,4 +1,4 @@
-var url = "../js/productos.xlsx";
+var url = "productos.xlsx";
 var oReq = new XMLHttpRequest();
 oReq.open("GET", url, true);
 oReq.responseType = "arraybuffer";
@@ -24,7 +24,7 @@ oReq.onload = function(e) {
                             <div class="producto">
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="${carrito.catalogo[i].Promocionar=='x'?'recomendadosi':'recomendado'}"><img src="../img/estrella.svg" class="estrella">Más vendido</div>
+                                        <div class="${carrito.catalogo[i].Promocionar=='x'?'recomendadosi':'recomendado'}"><img src="img/estrella.svg" class="estrella">Más vendido</div>
                                         <img class="foto-portada" src="img/fotos/${carrito.catalogo[i].Categoria}/${carrito.catalogo[i].Código}.jpg" alt="imagen-${carrito.catalogo[i].Producto}">
                                     </div>
                                     <div class="col-12 text-left">
@@ -79,7 +79,7 @@ oReq.onload = function(e) {
                                 <!-- Cerrar -->
                                 <div class="bt-cerrar">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <img src="../img/cerrar.svg" width="24px" class="mt-md-5 mt-3 mr-md-5 mr-3">
+                                        <img src="img/cerrar.svg" width="24px" class="mt-md-5 mt-3 mr-md-5 mr-3">
                                     </button>
                                 </div>
                                 <!-- Imagen -->
