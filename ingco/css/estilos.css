@@ -533,13 +533,14 @@
                 padding: 14px 14px 0px 0px !important;
             }
             .modal-dialog {
-                margin: 12px;
+                max-width: 352px;
+                margin: auto;
             }
             .modal-content {
                 max-height: 620px;
             }
             .modal-content .recomendadosi {
-                top: 232px;
+                top: 224px;
                 right: 12px;
             }
             .acceso2{
