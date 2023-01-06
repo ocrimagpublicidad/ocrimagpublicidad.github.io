@@ -79,22 +79,23 @@ oReq.onload = function(e) {
                                 <!-- Cerrar -->
                                 <div class="bt-cerrar">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <img src="img/cerrar.svg" width="24px" class="mt-md-5 mt-3 mr-md-5 mr-3">
+                                        <img src="img/cerrar.svg" width="32px">
                                     </button>
                                 </div>
                                 <!-- Imagen -->
                                 <div class="text-center" style="background-color: #ffffff">
                                     <img class="foto-detalle" src="img/fotos/${contenido.detalle[i].Categoria}/${contenido.detalle[i].Código}.jpg" alt="imagen-${contenido.detalle[i].Producto}">
                                 </div>
+                                <div class="${contenido.detalle[i].Promocionar=='x'?'recomendadosi':'recomendado'}"><img src="img/estrella.svg" class="estrella">Más vendido</div>
                                 <!-- Contenido -->
                                 <div class="modal-body pt-md-2 text-center">
-                                    <div class="py-4 px-md-5 px-4">
+                                    <div class="py-4 px-md-5 px-3">
                                         <div class="row align-items-center">
-                                            <div class="col-8 text-left">
+                                            <div class="col-9 text-left">
                                                 <h6 class="tx-bold tx-negro mb-0">${contenido.detalle[i].Producto}</h6>
                                                 <p class="tx-gris mb-0">${contenido.detalle[i].Código}</p>
                                             </div>
-                                            <div class="col-4 text-right">
+                                            <div class="col-3 text-right pl-0">
                                                 <h6 class="mb-0"><span class="tx-bold">Precio:</span> <span class="tx-gris">$${contenido.detalle[i].Precio}<span></h6>
                                             </div>
                                         </div>
