@@ -304,9 +304,8 @@
             box-shadow: 0px 2px 4px 0px var(--sombra-caja);
         }
         .modal-content .recomendadosi {
-            position:relative;
-            top: 12px;
-            right: -380px;
+            top: 334px;
+            right: 40px;
         }
         .estrella {
             position: relative;
@@ -540,7 +539,8 @@
                 max-height: 620px;
             }
             .modal-content .recomendadosi {
-                right: -240px;
+                top: 232px;
+                right: 12px;
             }
             .acceso2{
                 bottom: 100px;
